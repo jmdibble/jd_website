@@ -1,8 +1,16 @@
-# jd_web
+# Josh Dibble's Website
 
-A new Flutter project.
+A Flutter web project.
 
-## Getting Started
+## What is this?
+
+I created this website for two reasons:
+
+1. I wanted to try Flutter web properly and create a completely responsive website using only Flutter.
+
+2. I want people to be able to see and use the code behind my website to see how great Flutter is!
+
+## If you want to run my website locally
 
 This project is a starting point for a Flutter application.
 
