@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jd_web/theme/colors.dart';
 import 'package:jd_web/widgets/green_text_container.dart';
+import 'package:jd_web/widgets/slide_and_fade.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeSection2 extends StatelessWidget {
@@ -35,22 +36,32 @@ class HomeSection2 extends StatelessWidget {
                       direction: Axis.horizontal,
                       runSpacing: 32,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _workImage(imagePath: "assets/images/try1.png"),
-                            SizedBox(height: 16),
-                            GreenTextContainer(title: "CGI CATERING"),
-                          ],
+                        SlideAndFade(
+                          direction: SlideDirection.Bottom,
+                          delay: 12,
+                          withSlide: true,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _workImage(imagePath: "assets/images/try1.png"),
+                              SizedBox(height: 16),
+                              GreenTextContainer(title: "CGI CATERING"),
+                            ],
+                          ),
                         ),
                         sizeInfo.isDesktop ? SizedBox(width: 32) : Container(),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _workImage(imagePath: "assets/images/try2.png"),
-                            SizedBox(height: 16),
-                            GreenTextContainer(title: "WANDER"),
-                          ],
+                        SlideAndFade(
+                          direction: SlideDirection.Bottom,
+                          delay: 12,
+                          withSlide: true,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _workImage(imagePath: "assets/images/try2.png"),
+                              SizedBox(height: 16),
+                              GreenTextContainer(title: "WANDER"),
+                            ],
+                          ),
                         ),
                       ],
                     ),

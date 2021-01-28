@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jd_web/icons/jd_icons.dart';
 import 'package:jd_web/theme/colors.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'dart:html' as html;
 
 class Footer extends StatelessWidget {
   @override
@@ -16,14 +17,24 @@ class Footer extends StatelessWidget {
             padding: const EdgeInsets.all(32.0),
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: 1200),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildLeading(),
-                  _buildMiddle(),
-                  _buildEnd(),
-                ],
-              ),
+              child: sizeInfo.isDesktop
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _buildLeading(sizeInfo),
+                        _buildMiddle(),
+                        _buildEnd(sizeInfo),
+                      ],
+                    )
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _buildLeading(sizeInfo),
+                        SizedBox(height: 16),
+                        _buildMiddle(),
+                        _buildEnd(sizeInfo),
+                      ],
+                    ),
             ),
           ),
         ),
@@ -31,8 +42,11 @@ class Footer extends StatelessWidget {
     });
   }
 
-  _buildLeading() {
+  _buildLeading(SizingInformation sizeInfo) {
     return Row(
+      mainAxisAlignment: sizeInfo.isDesktop
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       children: [
         Text(
           "Josh ",
@@ -55,21 +69,29 @@ class Footer extends StatelessWidget {
     );
   }
 
-  _buildEnd() {
+  _buildEnd(SizingInformation sizeInfo) {
     return Row(
+      mainAxisAlignment: sizeInfo.isDesktop
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
       children: [
         IconButton(
             icon: Icon(
               JDIcons.mark_github,
               color: Colors.greenAccent,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              html.window.open('https://www.github.com/jmdibble', 'new tab');
+            }),
         IconButton(
             icon: Icon(
               JDIcons.linkedin_rect,
               color: Colors.greenAccent,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              html.window
+                  .open('https://www.linkedin.com/in/joshdibble93/', 'new tab');
+            }),
       ],
     );
   }

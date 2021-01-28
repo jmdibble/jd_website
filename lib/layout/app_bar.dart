@@ -1,11 +1,17 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:jd_web/icons/jd_icons.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeAppBar extends PreferredSize {
   final Function onSelectSkills;
+  final double elevation;
 
-  HomeAppBar({this.onSelectSkills});
+  HomeAppBar({
+    this.onSelectSkills,
+    this.elevation,
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(kToolbarHeight);
@@ -23,7 +29,7 @@ class HomeAppBar extends PreferredSize {
 
   _buildDesktopAppBar() {
     return AppBar(
-      elevation: 0,
+      elevation: elevation,
       toolbarHeight: 80,
       title: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 1200),
@@ -41,7 +47,7 @@ class HomeAppBar extends PreferredSize {
 
   _buildMobileAppBar() {
     return AppBar(
-      elevation: 0,
+      elevation: elevation,
       toolbarHeight: 80,
       title: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 1200),
@@ -76,6 +82,7 @@ class HomeAppBar extends PreferredSize {
     return Row(
       children: [
         FlatButton(
+          hoverColor: Colors.transparent,
           onPressed: () {
             onSelectSkills();
           },
@@ -87,6 +94,7 @@ class HomeAppBar extends PreferredSize {
           ),
         ),
         FlatButton(
+          hoverColor: Colors.transparent,
           onPressed: () {},
           child: Text(
             "Work",
@@ -96,6 +104,7 @@ class HomeAppBar extends PreferredSize {
           ),
         ),
         FlatButton(
+          hoverColor: Colors.transparent,
           onPressed: () {},
           child: Text(
             "Contact",
@@ -112,7 +121,10 @@ class HomeAppBar extends PreferredSize {
     return Row(
       children: [
         FlatButton(
-          onPressed: () {},
+          hoverColor: Colors.transparent,
+          onPressed: () {
+            html.window.open('https://www.github.com/jmdibble', 'new tab');
+          },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -131,7 +143,11 @@ class HomeAppBar extends PreferredSize {
         ),
         SizedBox(width: 8),
         FlatButton(
-          onPressed: () {},
+          hoverColor: Colors.transparent,
+          onPressed: () {
+            html.window
+                .open('https://www.linkedin.com/in/joshdibble93/', 'new tab');
+          },
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

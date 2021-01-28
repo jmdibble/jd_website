@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jd_web/widgets/green_text_container.dart';
+import 'package:jd_web/widgets/slide_and_fade.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HomeHero extends StatelessWidget {
@@ -31,7 +32,10 @@ class HomeHero extends StatelessWidget {
   }
 
   _buildLeft() {
-    return Flexible(
+    return SlideAndFade(
+      direction: SlideDirection.Left,
+      withSlide: true,
+      delay: 5,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,13 +64,18 @@ class HomeHero extends StatelessWidget {
   }
 
   _buildRight() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        width: 450,
-        child: Image(
-          fit: BoxFit.fitWidth,
-          image: AssetImage('assets/images/jdplanet.png'),
+    return SlideAndFade(
+      delay: 5,
+      withSlide: true,
+      direction: SlideDirection.Right,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          width: 450,
+          child: Image(
+            fit: BoxFit.fitWidth,
+            image: AssetImage('assets/images/jdplanet.png'),
+          ),
         ),
       ),
     );

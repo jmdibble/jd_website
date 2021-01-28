@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jd_web/home/widgets/contact.dart';
 import 'package:jd_web/home/widgets/home_hero.dart';
 import 'package:jd_web/home/widgets/home_section_1.dart';
 import 'package:jd_web/home/widgets/home_section_2.dart';
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
         HomeHero(),
         HomeSection1(key: skillsKey),
         HomeSection2(),
+        Contact(),
       ],
     );
   }
